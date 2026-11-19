@@ -1,0 +1,1241 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Currículo e Portfólio Técnico de Anna Esther Gomes da Silva - Técnico em Automação Industrial, Qualidade Industrial e Mecânica de Usinagem.">
+    <title>Anna Esther | Currículo & Portfólio — Automação Industrial</title>
+
+    <!-- Fontes Google: Inter (Legibilidade moderna) e JetBrains Mono (Estética técnica/industrial) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <!-- Tailwind CSS via CDN (Para layout responsivo e utilitários rápidos) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Phosphor Icons (Ícones técnicos e limpos) -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+
+    <!-- Configuração do Tailwind para usar nossas variáveis CSS de Tema -->
+    <script>
+        tailwind.config = {
+            darkMode: ['class', '[data-theme="dark"]'],
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'monospace'],
+                    },
+                    colors: {
+                        brand: {
+                            DEFAULT: 'var(--color-primary)',
+                            hover: 'var(--color-primary-hover)',
+                            soft: 'var(--color-primary-soft)',
+                            border: 'var(--color-primary-border)',
+                        },
+                        surface: {
+                            bg: 'var(--bg-main)',
+                            card: 'var(--bg-card)',
+                            nav: 'var(--bg-nav)',
+                            subtle: 'var(--bg-subtle)',
+                        },
+                        content: {
+                            main: 'var(--text-main)',
+                            muted: 'var(--text-muted)',
+                            inverse: 'var(--text-inverse)',
+                        },
+                        line: {
+                            DEFAULT: 'var(--border-color)',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* ==========================================================================
+           VARIÁVEIS DE TEMA (Fácil personalização das cores do Portfólio da Esther)
+           ========================================================================== */
+        :root {
+            /* Cores Principais (Rosa / Magenta Industrial) */
+            --color-primary: #e11d48;         /* Rose 600 - Vibrante e elegante */
+            --color-primary-hover: #be123c;   /* Rose 700 - Tom mais escuro no hover */
+            --color-primary-soft: rgba(225, 29, 72, 0.08);
+            --color-primary-border: rgba(225, 29, 72, 0.25);
+
+            /* Tema Claro (Light Mode - Padrão) */
+            --bg-main: #f8fafc;               /* Slate 50 */
+            --bg-card: #ffffff;               /* Branco puro para contraste */
+            --bg-nav: rgba(248, 250, 252, 0.85);
+            --bg-subtle: #f1f5f9;             /* Slate 100 */
+            --text-main: #0f172a;             /* Slate 900 */
+            --text-muted: #475569;            /* Slate 600 */
+            --text-inverse: #ffffff;
+            --border-color: #e2e8f0;          /* Slate 200 */
+            --grid-pattern: rgba(15, 23, 42, 0.04);
+        }
+
+        [data-theme="dark"] {
+            /* Cores Principais ajustadas para alto contraste no escuro */
+            --color-primary: #f43f5e;         /* Rose 500 - Brilho técnico no escuro */
+            --color-primary-hover: #fb7185;   /* Rose 400 */
+            --color-primary-soft: rgba(244, 63, 94, 0.12);
+            --color-primary-border: rgba(244, 63, 94, 0.3);
+
+            /* Tema Escuro (Dark Mode - Sala de Controle / Engenharia) */
+            --bg-main: #0b0f19;               /* Azul petróleo profundo */
+            --bg-card: #131a2a;               /* Card elevado */
+            --bg-nav: rgba(11, 15, 25, 0.85);
+            --bg-subtle: #1e293b;             /* Slate 800 */
+            --text-main: #f8fafc;             /* Slate 50 */
+            --text-muted: #94a3b8;            /* Slate 400 */
+            --text-inverse: #ffffff;
+            --border-color: #1e293b;          /* Slate 800 */
+            --grid-pattern: rgba(248, 250, 252, 0.03);
+        }
+
+        /* ==========================================================================
+           ESTILOS GERAIS E DETALHES TÉCNICOS
+           ========================================================================== */
+        body {
+            background-color: var(--bg-main);
+            color: var(--text-main);
+            transition: background-color 0.3s ease, color 0.3s ease;
+            overflow-x: hidden;
+        }
+
+        /* Padrão de malha técnica sutil (estilo papel milimetrado / CAD) */
+        .tech-grid-bg {
+            background-image: 
+                linear-gradient(to right, var(--grid-pattern) 1px, transparent 1px),
+                linear-gradient(to bottom, var(--grid-pattern) 1px, transparent 1px);
+            background-size: 32px 32px;
+        }
+
+        /* Transições suaves nos cards e botões */
+        .theme-transition {
+            transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        /* Animação do indicador de status online (LED Industrial) */
+        @keyframes pulse-led {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.4; transform: scale(1.15); }
+        }
+        .status-led {
+            animation: pulse-led 2.2s infinite ease-in-out;
+        }
+
+        /* Animação de fluxo de dados no diagrama Hero */
+        @keyframes dash-flow {
+            to { stroke-dashoffset: -24; }
+        }
+        .data-stream {
+            stroke-dasharray: 6 6;
+            animation: dash-flow 1.2s linear infinite;
+        }
+
+        /* ==========================================================================
+           ESTILOS DE IMPRESSÃO / SALVAR COMO PDF (@media print)
+           ========================================================================== */
+        @media print {
+            body {
+                background: #ffffff !important;
+                color: #0f172a !important;
+                font-size: 11pt;
+            }
+            header, .no-print, #project-modal, #project-filters {
+                display: none !important;
+            }
+            section {
+                padding-top: 1.2rem !important;
+                padding-bottom: 1.2rem !important;
+                border-color: #cbd5e1 !important;
+                page-break-inside: avoid;
+            }
+            #inicio {
+                padding-top: 0.5rem !important;
+            }
+            .tech-grid-bg {
+                background-image: none !important;
+            }
+            .shadow-xl, .shadow-lg, .shadow-md, .shadow-sm {
+                box-shadow: none !important;
+            }
+            .bg-surface-card, .bg-surface-subtle, .bg-surface-subtle\/50, .bg-surface-subtle\/40 {
+                background-color: #ffffff !important;
+                border-color: #cbd5e1 !important;
+            }
+            a[href^="http"]::after {
+                content: "";
+            }
+        }
+    </style>
+
+    <!-- Script executado antes da renderização para evitar "flash" de tema incorreto -->
+    <script>
+        (function() {
+            const savedTheme = localStorage.getItem('esther-portfolio-theme');
+            const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+            if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
+                document.documentElement.setAttribute('data-theme', 'dark');
+            } else {
+                document.documentElement.setAttribute('data-theme', 'light');
+            }
+        })();
+    </script>
+</head>
+<body class="font-sans antialiased selection:bg-brand selection:text-white">
+
+    <!-- ==========================================================================
+         1. BARRA DE NAVEGAÇÃO SUPERIOR (FIXA)
+         ========================================================================== -->
+    <header class="fixed top-0 left-0 right-0 z-40 bg-surface-nav backdrop-blur-md border-b border-line theme-transition">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                
+                <!-- Identidade / Logo -->
+                <a href="#inicio" class="flex items-center gap-2.5 group focus:outline-none">
+                    <div class="w-9 h-9 rounded-lg bg-brand-soft border border-brand-border flex items-center justify-center text-brand group-hover:bg-brand group-hover:text-white theme-transition">
+                        <i class="ph-bold ph-cpu text-xl"></i>
+                    </div>
+                    <div class="flex flex-col">
+                        <span class="font-bold text-lg tracking-tight leading-none">
+                            Anna <span class="text-brand">Esther</span>
+                        </span>
+                        <span class="font-mono text-[10px] uppercase tracking-widest text-content-muted mt-0.5">
+                            Automação Industrial
+                        </span>
+                    </div>
+                </a>
+
+                <!-- Links de Navegação (Desktop) -->
+                <nav class="hidden lg:flex items-center gap-6 text-sm font-medium">
+                    <a href="#inicio" class="text-content-muted hover:text-brand theme-transition">Resumo</a>
+                    <a href="#experiencia" class="text-content-muted hover:text-brand theme-transition">Experiência</a>
+                    <a href="#formacao" class="text-content-muted hover:text-brand theme-transition">Formação</a>
+                    <a href="#cursos" class="text-content-muted hover:text-brand theme-transition">Cursos & Skills</a>
+                    <a href="#projetos" class="text-content-muted hover:text-brand theme-transition">Portfólio</a>
+                    <a href="#contato" class="text-content-muted hover:text-brand theme-transition">Contato</a>
+                </nav>
+
+                <!-- Ações: Imprimir PDF + Alternador de Tema + Menu Mobile -->
+                <div class="flex items-center gap-2">
+                    <!-- Botão Salvar PDF / Imprimir Currículo -->
+                    <button type="button" onclick="window.print()" title="Imprimir ou Salvar Currículo em PDF"
+                        class="hidden sm:flex p-2.5 rounded-xl bg-surface-subtle hover:bg-brand-soft text-content-main hover:text-brand border border-line theme-transition items-center gap-1.5 text-xs font-mono font-medium">
+                        <i class="ph-bold ph-printer text-base"></i>
+                        <span>Salvar PDF</span>
+                    </button>
+
+                    <!-- Botão Tema Claro / Escuro -->
+                    <button id="theme-toggle" type="button" aria-label="Alternar tema claro ou escuro"
+                        class="p-2.5 rounded-xl bg-surface-subtle hover:bg-brand-soft text-content-main hover:text-brand border border-line theme-transition flex items-center gap-2">
+                        <i id="theme-icon-sun" class="ph-bold ph-sun text-lg hidden"></i>
+                        <i id="theme-icon-moon" class="ph-bold ph-moon text-lg"></i>
+                        <span id="theme-label" class="text-xs font-mono hidden sm:inline">Tema</span>
+                    </button>
+
+                    <!-- Botão Menu Mobile -->
+                    <button id="mobile-menu-btn" type="button" aria-label="Abrir menu"
+                        class="lg:hidden p-2.5 rounded-xl bg-surface-subtle text-content-main hover:text-brand border border-line theme-transition">
+                        <i id="mobile-menu-icon" class="ph-bold ph-list text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Menu Dropdown Mobile -->
+        <div id="mobile-menu" class="hidden lg:hidden bg-surface-card border-b border-line px-4 pt-2 pb-5 space-y-1.5 shadow-lg">
+            <a href="#inicio" class="mobile-link block px-3 py-2.5 rounded-lg text-sm font-medium hover:bg-brand-soft hover:text-brand">Resumo Profissional</a>
+            <a href="#experiencia" class="mobile-link block px-3 py-2.5 rounded-lg text-sm font-medium hover:bg-brand-soft hover:text-brand">Experiência Profissional</a>
+            <a href="#formacao" class="mobile-link block px-3 py-2.5 rounded-lg text-sm font-medium hover:bg-brand-soft hover:text-brand">Formação Acadêmica</a>
+            <a href="#cursos" class="mobile-link block px-3 py-2.5 rounded-lg text-sm font-medium hover:bg-brand-soft hover:text-brand">Cursos & Competências</a>
+            <a href="#projetos" class="mobile-link block px-3 py-2.5 rounded-lg text-sm font-medium hover:bg-brand-soft hover:text-brand">Portfólio de Projetos</a>
+            <a href="#contato" class="mobile-link block px-3 py-2.5 rounded-lg text-sm font-medium hover:bg-brand-soft hover:text-brand">Contato & Localização</a>
+            <button type="button" onclick="window.print()"
+                class="w-full mt-2 px-3 py-2.5 rounded-lg text-sm font-mono font-medium bg-brand-soft text-brand border border-brand-border flex items-center justify-center gap-2">
+                <i class="ph-bold ph-printer text-base"></i> Imprimir / Salvar Currículo PDF
+            </button>
+        </div>
+    </header>
+
+    <!-- ==========================================================================
+         2. SEÇÃO HERO / CABEÇALHO DO CURRÍCULO (APRESENTAÇÃO PRINCIPAL)
+         ========================================================================== -->
+    <section id="inicio" class="relative pt-28 pb-16 md:pt-32 md:pb-24 tech-grid-bg border-b border-line overflow-hidden">
+        <!-- Brilho decorativo suave em rosa -->
+        <div class="absolute -top-24 -right-24 w-96 h-96 rounded-full bg-brand opacity-10 blur-3xl pointer-events-none"></div>
+
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+                
+                <!-- Coluna de Texto e Objetivo (7 colunas) -->
+                <div class="lg:col-span-7 space-y-5">
+                    <!-- Badge de Objetivo Profissional -->
+                    <div class="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-surface-card border border-brand-border shadow-sm">
+                        <span class="w-2.5 h-2.5 rounded-full bg-brand status-led"></span>
+                        <span class="font-mono text-xs font-semibold text-brand uppercase tracking-wide">
+                            Objetivo: Técnico em Automação Industrial
+                        </span>
+                    </div>
+
+                    <h1 class="text-3xl sm:text-5xl font-bold tracking-tight leading-tight">
+                        Anna <span class="text-brand">Esther</span> Gomes da Silva
+                    </h1>
+
+                    <!-- Metadados rápidos de Localização & Contato direto -->
+                    <div class="flex flex-wrap items-center gap-x-5 gap-y-2 text-xs sm:text-sm text-content-muted font-medium">
+                        <span class="flex items-center gap-1.5">
+                            <i class="ph-bold ph-map-pin text-brand text-base"></i>
+                            Piraporinha – Diadema, SP
+                        </span>
+                        <span class="flex items-center gap-1.5">
+                            <i class="ph-bold ph-user text-brand text-base"></i>
+                            19 anos (30/03/2006) • Brasileira
+                        </span>
+                        <span class="flex items-center gap-1.5">
+                            <i class="ph-bold ph-envelope-simple text-brand text-base"></i>
+                            annaesther1801@gmail.com
+                        </span>
+                    </div>
+
+                    <!-- Resumo Profissional conectando Qualidade, Mecânica e Automação -->
+                    <p class="text-sm sm:text-base text-content-muted max-w-2xl leading-relaxed pt-1">
+                        Profissional com sólida vivência no ambiente fabril e trajetória construída em indústrias de referência como <strong class="text-content-main font-medium">Volkswagen do Brasil, NOVEMP e Itaesbra</strong>. Minha base técnica integra <strong class="text-content-main font-medium">Gestão da Qualidade, Mecânica de Usinagem e Montagem Mecânica</strong>, atualmente em transição e especialização para <strong class="text-content-main font-medium">Automação Industrial (SENAI)</strong>, unindo visão de chão de fábrica, controle de processos e tecnologia industrial.
+                    </p>
+
+                    <!-- Botões de Ação Rápida -->
+                    <div class="flex flex-wrap items-center gap-3 pt-2 no-print">
+                        <a href="https://wa.me/5511970806642" target="_blank" rel="noopener noreferrer"
+                            class="px-5 py-3 rounded-xl bg-brand hover:bg-brand-hover text-white font-medium text-sm shadow-md shadow-rose-500/20 flex items-center gap-2 theme-transition">
+                            <i class="ph-bold ph-whatsapp-logo text-lg"></i>
+                            Chamar no WhatsApp
+                        </a>
+                        <button type="button" onclick="window.print()"
+                            class="px-5 py-3 rounded-xl bg-surface-card hover:bg-brand-soft text-content-main hover:text-brand border border-line font-medium text-sm flex items-center gap-2 theme-transition">
+                            <i class="ph-bold ph-file-pdf text-lg text-brand"></i>
+                            Baixar / Imprimir CV
+                        </button>
+                        <a href="#projetos"
+                            class="px-5 py-3 rounded-xl bg-surface-card hover:bg-brand-soft text-content-main hover:text-brand border border-line font-medium text-sm flex items-center gap-2 theme-transition">
+                            <i class="ph-bold ph-folders text-lg text-brand"></i>
+                            Ver Portfólio
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Coluna Visual: Ficha Técnica / Cartão de Identificação Industrial (5 colunas) -->
+                <div class="lg:col-span-5">
+                    <div class="rounded-2xl bg-surface-card border border-line p-5 sm:p-6 shadow-xl theme-transition relative">
+                        <!-- Barra superior estilo IHM / Ficha de Engenharia -->
+                        <div class="flex items-center justify-between pb-4 mb-4 border-b border-line">
+                            <div class="flex items-center gap-2">
+                                <span class="w-3 h-3 rounded-full bg-brand"></span>
+                                <span class="w-3 h-3 rounded-full bg-amber-400"></span>
+                                <span class="w-3 h-3 rounded-full bg-emerald-400"></span>
+                            </div>
+                            <span class="font-mono text-xs text-content-muted">FICHA_TECNICA // CV_2026</span>
+                        </div>
+
+                        <!-- Pilares de Formação & Vivência Industrial -->
+                        <div class="space-y-3.5">
+                            <!-- Pilar 1 -->
+                            <div class="p-3.5 rounded-xl bg-brand-soft border border-brand-border flex items-center justify-between">
+                                <div class="flex items-center gap-3">
+                                    <div class="w-9 h-9 rounded-lg bg-brand text-white flex items-center justify-center shrink-0">
+                                        <i class="ph-bold ph-cpu text-lg"></i>
+                                    </div>
+                                    <div>
+                                        <p class="text-[11px] font-mono text-brand font-semibold uppercase">Foco Atual</p>
+                                        <p class="text-sm font-semibold">Automação Industrial</p>
+                                    </div>
+                                </div>
+                                <span class="font-mono text-[11px] px-2 py-1 rounded bg-surface-card text-brand font-semibold border border-brand-border">SENAI</span>
+                            </div>
+
+                            <!-- Pilar 2 -->
+                            <div class="p-3.5 rounded-xl bg-surface-subtle border border-line flex items-center justify-between">
+                                <div class="flex items-center gap-3">
+                                    <div class="w-9 h-9 rounded-lg bg-brand-soft text-brand flex items-center justify-center shrink-0">
+                                        <i class="ph-bold ph-gear-six text-lg"></i>
+                                    </div>
+                                    <div>
+                                        <p class="text-[11px] font-mono text-brand font-semibold uppercase">Base Mecânica</p>
+                                        <p class="text-sm font-medium">Usinagem & Montagem Mecânica</p>
+                                    </div>
+                                </div>
+                                <span class="font-mono text-[11px] px-2 py-1 rounded bg-surface-card border border-line">Prática</span>
+                            </div>
+
+                            <!-- Pilar 3 -->
+                            <div class="p-3.5 rounded-xl bg-surface-subtle border border-line flex items-center justify-between">
+                                <div class="flex items-center gap-3">
+                                    <div class="w-9 h-9 rounded-lg bg-brand-soft text-brand flex items-center justify-center shrink-0">
+                                        <i class="ph-bold ph-seal-check text-lg"></i>
+                                    </div>
+                                    <div>
+                                        <p class="text-[11px] font-mono text-brand font-semibold uppercase">Rigor Técnico</p>
+                                        <p class="text-sm font-medium">Gestão da Qualidade & Metrologia</p>
+                                    </div>
+                                </div>
+                                <span class="font-mono text-[11px] px-2 py-1 rounded bg-surface-card border border-line">Técnico</span>
+                            </div>
+                        </div>
+
+                        <!-- Rodapé da Ficha -->
+                        <div class="mt-5 pt-3 border-t border-line flex items-center justify-between font-mono text-xs text-content-muted">
+                            <span>BASE: <strong class="text-content-main">ABC Paulista / SP</strong></span>
+                            <span class="text-brand font-semibold">● DISPONÍVEL</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ==========================================================================
+         3. SEÇÃO EXPERIÊNCIA PROFISSIONAL (TIMELINE INDUSTRIAL)
+         ========================================================================== -->
+    <section id="experiencia" class="py-16 sm:py-20 border-b border-line">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
+                
+                <!-- Título da Seção -->
+                <div class="lg:col-span-4">
+                    <span class="font-mono text-xs uppercase tracking-widest text-brand font-semibold">01 // Trajetória Fabril</span>
+                    <h2 class="text-3xl font-bold mt-2 tracking-tight">Experiência Profissional</h2>
+                    <div class="w-12 h-1 bg-brand rounded-full mt-4"></div>
+                    <p class="text-sm text-content-muted mt-4 leading-relaxed">
+                        Vivência prática em processos produtivos, controle dimensional, montagem de conjuntos mecânicos e rotinas de qualidade industrial.
+                    </p>
+                </div>
+
+                <!-- Linha do Tempo (8 colunas) -->
+                <div class="lg:col-span-8">
+                    <div class="relative border-l-2 border-brand-border ml-3 sm:ml-4 space-y-8 pl-6 sm:pl-8">
+                        
+                        <!-- Experiência 1: Itaesbra -->
+                        <div class="relative group">
+                            <span class="absolute -left-[33px] sm:-left-[41px] top-1.5 w-4 h-4 rounded-full bg-brand ring-4 ring-brand-soft"></span>
+                            <div class="p-6 rounded-2xl bg-surface-card border border-line hover:border-brand-border shadow-sm theme-transition">
+                                <div class="flex flex-wrap items-center justify-between gap-2 mb-2">
+                                    <span class="px-3 py-1 rounded-full text-xs font-mono font-semibold bg-brand-soft text-brand border border-brand-border">
+                                        Jan/2026 – Jun/2027
+                                    </span>
+                                    <span class="font-mono text-xs text-content-muted flex items-center gap-1">
+                                        <i class="ph-bold ph-buildings text-brand"></i> Indústria Automotiva / Metalúrgica
+                                    </span>
+                                </div>
+                                <h3 class="text-xl font-bold tracking-tight">Gestão da Qualidade</h3>
+                                <p class="text-sm font-semibold text-brand mt-0.5">Itaesbra</p>
+                                <p class="text-sm text-content-muted mt-3 leading-relaxed">
+                                    Atuação nas rotinas de Gestão da Qualidade industrial, aplicando ferramentas da qualidade, inspeção de processos, controle de conformidade e suporte à melhoria contínua na linha de produção.
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Experiência 2: NOVEMP -->
+                        <div class="relative group">
+                            <span class="absolute -left-[33px] sm:-left-[41px] top-1.5 w-4 h-4 rounded-full bg-surface-card border-2 border-brand"></span>
+                            <div class="p-6 rounded-2xl bg-surface-card border border-line hover:border-brand-border shadow-sm theme-transition">
+                                <div class="flex flex-wrap items-center justify-between gap-2 mb-2">
+                                    <span class="px-3 py-1 rounded-full text-xs font-mono font-medium bg-surface-subtle text-content-main border border-line">
+                                        Jun/2024 – Dez/2025
+                                    </span>
+                                    <span class="font-mono text-xs text-content-muted flex items-center gap-1">
+                                        <i class="ph-bold ph-wrench text-brand"></i> Manufatura & Montagem
+                                    </span>
+                                </div>
+                                <h3 class="text-xl font-bold tracking-tight">Montagem Mecânica</h3>
+                                <p class="text-sm font-semibold text-brand mt-0.5">NOVEMP</p>
+                                <p class="text-sm text-content-muted mt-3 leading-relaxed">
+                                    Execução de montagem de conjuntos mecânicos, interpretação técnica de componentes, ajustes dimensionais e cumprimento de padrões operacionais e de segurança no ambiente industrial.
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Experiência 3: Volkswagen do Brasil -->
+                        <div class="relative group">
+                            <span class="absolute -left-[33px] sm:-left-[41px] top-1.5 w-4 h-4 rounded-full bg-surface-card border-2 border-brand"></span>
+                            <div class="p-6 rounded-2xl bg-surface-card border border-line hover:border-brand-border shadow-sm theme-transition">
+                                <div class="flex flex-wrap items-center justify-between gap-2 mb-2">
+                                    <span class="px-3 py-1 rounded-full text-xs font-mono font-medium bg-surface-subtle text-content-main border border-line">
+                                        Jul/2023 – Dez/2023
+                                    </span>
+                                    <span class="font-mono text-xs text-content-muted flex items-center gap-1">
+                                        <i class="ph-bold ph-factory text-brand"></i> Setor Automobilístico
+                                    </span>
+                                </div>
+                                <h3 class="text-xl font-bold tracking-tight">Contrato Jovem Aprendiz</h3>
+                                <p class="text-sm font-semibold text-brand mt-0.5">Volkswagen do Brasil</p>
+                                <p class="text-sm text-content-muted mt-3 leading-relaxed">
+                                    Primeira vivência corporativa e industrial em montadora multinacional, desenvolvendo disciplina operacional, trabalho em equipe, organização de processos e cultura de excelência fabril.
+                                </p>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ==========================================================================
+         4. SEÇÃO FORMAÇÃO ACADÊMICA (SENAI)
+         ========================================================================== -->
+    <section id="formacao" class="py-16 sm:py-20 bg-surface-subtle/50 border-b border-line theme-transition">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="mb-12">
+                <span class="font-mono text-xs uppercase tracking-widest text-brand font-semibold">02 // Qualificação Técnica</span>
+                <h2 class="text-3xl font-bold mt-2 tracking-tight">Formação Acadêmica</h2>
+                <div class="w-12 h-1 bg-brand rounded-full mt-4"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                
+                <!-- Formação 1: Técnico em Automação Industrial (Destaque Cursando) -->
+                <div class="p-6 rounded-2xl bg-surface-card border-2 border-brand-border shadow-md flex flex-col justify-between theme-transition relative overflow-hidden">
+                    <div>
+                        <div class="flex items-center justify-between gap-2 mb-4">
+                            <div class="w-11 h-11 rounded-xl bg-brand text-white flex items-center justify-center">
+                                <i class="ph-bold ph-cpu text-2xl"></i>
+                            </div>
+                            <span class="px-3 py-1 rounded-full text-xs font-mono font-semibold bg-brand-soft text-brand border border-brand-border flex items-center gap-1.5">
+                                <span class="w-2 h-2 rounded-full bg-brand status-led"></span> Cursando
+                            </span>
+                        </div>
+                        <h3 class="text-lg font-bold leading-snug">Técnico em Automação Industrial</h3>
+                        <p class="text-sm font-medium text-brand mt-1.5">SENAI Manuel Garcia Filho</p>
+                        <p class="text-xs text-content-muted mt-3 leading-relaxed">
+                            Formação focada em controle de processos industriais, sistemas eletroeletrônicos, CLPs, instrumentação, redes industriais e integração de sistemas automatizados.
+                        </p>
+                    </div>
+                    <div class="mt-5 pt-3 border-t border-line flex items-center justify-between font-mono text-xs text-content-muted">
+                        <span>STATUS:</span>
+                        <span class="text-brand font-semibold">Em andamento</span>
+                    </div>
+                </div>
+
+                <!-- Formação 2: Aprendizagem Industrial Mecânica de Usinagem -->
+                <div class="p-6 rounded-2xl bg-surface-card border border-line hover:border-brand-border shadow-sm flex flex-col justify-between theme-transition">
+                    <div>
+                        <div class="flex items-center justify-between gap-2 mb-4">
+                            <div class="w-11 h-11 rounded-xl bg-brand-soft text-brand flex items-center justify-center">
+                                <i class="ph-bold ph-gear text-2xl"></i>
+                            </div>
+                            <span class="px-3 py-1 rounded-full text-xs font-mono font-medium bg-surface-subtle text-content-main border border-line">
+                                Concluído • Dez/2025
+                            </span>
+                        </div>
+                        <h3 class="text-lg font-bold leading-snug">Curso de Aprendizagem Industrial: Mecânica de Usinagem</h3>
+                        <p class="text-sm font-medium text-brand mt-1.5">SENAI Manuel Garcia Filho</p>
+                        <p class="text-xs text-content-muted mt-3 leading-relaxed">
+                            Processos de fabricação mecânica, leitura e interpretação de desenho técnico mecânico, operação de máquinas operatrizes e controle dimensional de precisão.
+                        </p>
+                    </div>
+                    <div class="mt-5 pt-3 border-t border-line flex items-center justify-between font-mono text-xs text-content-muted">
+                        <span>CONCLUSÃO:</span>
+                        <span class="text-content-main font-semibold">Dezembro / 2025</span>
+                    </div>
+                </div>
+
+                <!-- Formação 3: Técnico em Qualidade -->
+                <div class="p-6 rounded-2xl bg-surface-card border border-line hover:border-brand-border shadow-sm flex flex-col justify-between theme-transition">
+                    <div>
+                        <div class="flex items-center justify-between gap-2 mb-4">
+                            <div class="w-11 h-11 rounded-xl bg-brand-soft text-brand flex items-center justify-center">
+                                <i class="ph-bold ph-certificate text-2xl"></i>
+                            </div>
+                            <span class="px-3 py-1 rounded-full text-xs font-mono font-medium bg-surface-subtle text-content-main border border-line">
+                                Concluído • Dez/2023
+                            </span>
+                        </div>
+                        <h3 class="text-lg font-bold leading-snug">Técnico em Qualidade</h3>
+                        <p class="text-sm font-medium text-brand mt-1.5">SENAI Almirante Tamandaré</p>
+                        <p class="text-xs text-content-muted mt-3 leading-relaxed">
+                            Gestão de sistemas da qualidade, auditoria interna, análise de não conformidades, CEP (Controle Estatístico de Processo) e normas técnicas industriais.
+                        </p>
+                    </div>
+                    <div class="mt-5 pt-3 border-t border-line flex items-center justify-between font-mono text-xs text-content-muted">
+                        <span>CONCLUSÃO:</span>
+                        <span class="text-content-main font-semibold">Dezembro / 2023</span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ==========================================================================
+         5. SEÇÃO CURSOS EXTRACURRICULARES & COMPETÊNCIAS TÉCNICAS
+         ========================================================================== -->
+    <section id="cursos" class="py-16 sm:py-20 border-b border-line">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-10">
+                
+                <!-- Coluna Esquerda: Cursos Extracurriculares (7 colunas) -->
+                <div class="lg:col-span-7 space-y-6">
+                    <div>
+                        <span class="font-mono text-xs uppercase tracking-widest text-brand font-semibold">03 // Aperfeiçoamento Contínuo</span>
+                        <h2 class="text-3xl font-bold mt-2 tracking-tight">Cursos Extracurriculares</h2>
+                        <div class="w-12 h-1 bg-brand rounded-full mt-4"></div>
+                    </div>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <!-- Curso 1 -->
+                        <div class="p-4 rounded-xl bg-surface-card border border-line hover:border-brand-border flex items-start gap-3.5 theme-transition">
+                            <div class="w-9 h-9 rounded-lg bg-brand-soft text-brand flex items-center justify-center shrink-0 mt-0.5">
+                                <i class="ph-bold ph-chart-bar text-lg"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold text-sm">Ferramentas da Qualidade</h3>
+                                <p class="text-xs text-content-muted mt-1">SENAI Manuel Garcia Filho</p>
+                            </div>
+                        </div>
+
+                        <!-- Curso 2 -->
+                        <div class="p-4 rounded-xl bg-surface-card border border-line hover:border-brand-border flex items-start gap-3.5 theme-transition">
+                            <div class="w-9 h-9 rounded-lg bg-brand-soft text-brand flex items-center justify-center shrink-0 mt-0.5">
+                                <i class="ph-bold ph-ruler text-lg"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold text-sm">Metrologia Aplicada à Mecânica</h3>
+                                <p class="text-xs text-content-muted mt-1">SENAI Manuel Garcia Filho</p>
+                            </div>
+                        </div>
+
+                        <!-- Curso 3 -->
+                        <div class="p-4 rounded-xl bg-surface-card border border-line hover:border-brand-border flex items-start gap-3.5 theme-transition">
+                            <div class="w-9 h-9 rounded-lg bg-brand-soft text-brand flex items-center justify-center shrink-0 mt-0.5">
+                                <i class="ph-bold ph-handshake text-lg"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold text-sm">Excelência no Atendimento ao Cliente</h3>
+                                <p class="text-xs text-content-muted mt-1">SENAI Manuel Garcia Filho</p>
+                            </div>
+                        </div>
+
+                        <!-- Curso 4 -->
+                        <div class="p-4 rounded-xl bg-surface-card border border-line hover:border-brand-border flex items-start gap-3.5 theme-transition">
+                            <div class="w-9 h-9 rounded-lg bg-brand-soft text-brand flex items-center justify-center shrink-0 mt-0.5">
+                                <i class="ph-bold ph-clipboard-text text-lg"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold text-sm">Auxiliar Administrativo</h3>
+                                <p class="text-xs text-content-muted mt-1">Fundação Florestan Fernandes</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Coluna Direita: Competências & Habilidades (5 colunas) -->
+                <div class="lg:col-span-5">
+                    <div class="p-6 rounded-2xl bg-surface-card border border-line h-full flex flex-col justify-between theme-transition">
+                        <div>
+                            <span class="font-mono text-xs uppercase tracking-widest text-brand font-semibold">Matriz de Skills</span>
+                            <h3 class="text-xl font-bold mt-1 mb-4">Competências Técnicas & Operacionais</h3>
+                            <p class="text-xs text-content-muted mb-5 leading-relaxed">
+                                Combinação multidisciplinar entre controle de processos automatizados, precisão mecânica e gestão da qualidade.
+                            </p>
+
+                            <div class="flex flex-wrap gap-2">
+                                <span class="px-3 py-1.5 rounded-lg text-xs font-mono font-semibold bg-brand-soft text-brand border border-brand-border">Automação Industrial</span>
+                                <span class="px-3 py-1.5 rounded-lg text-xs font-mono bg-surface-subtle border border-line">Gestão da Qualidade</span>
+                                <span class="px-3 py-1.5 rounded-lg text-xs font-mono bg-surface-subtle border border-line">Metrologia Aplicada</span>
+                                <span class="px-3 py-1.5 rounded-lg text-xs font-mono bg-surface-subtle border border-line">Mecânica de Usinagem</span>
+                                <span class="px-3 py-1.5 rounded-lg text-xs font-mono bg-surface-subtle border border-line">Montagem Mecânica</span>
+                                <span class="px-3 py-1.5 rounded-lg text-xs font-mono bg-surface-subtle border border-line">Ferramentas da Qualidade</span>
+                                <span class="px-3 py-1.5 rounded-lg text-xs font-mono bg-surface-subtle border border-line">Leitura de Desenho Técnico</span>
+                                <span class="px-3 py-1.5 rounded-lg text-xs font-mono bg-surface-subtle border border-line">Processos Industriais</span>
+                                <span class="px-3 py-1.5 rounded-lg text-xs font-mono bg-surface-subtle border border-line">Rotinas Administrativas</span>
+                            </div>
+                        </div>
+
+                        <div class="mt-6 pt-4 border-t border-line flex items-center justify-between text-xs font-mono text-content-muted">
+                            <span>PERFIL:</span>
+                            <span class="text-brand font-semibold">Indústria • Qualidade • Automação</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ==========================================================================
+         6. SEÇÃO PORTFÓLIO & PROJETOS (MODULAR - PARA EXPANSÃO NO GITHUB)
+         ========================================================================== -->
+    <section id="projetos" class="py-16 sm:py-20 bg-surface-subtle/30 border-b border-line">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <!-- Cabeçalho + Botões de Filtro -->
+            <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
+                <div>
+                    <span class="font-mono text-xs uppercase tracking-widest text-brand font-semibold">04 // Laboratório & Prática Técnica</span>
+                    <h2 class="text-3xl font-bold mt-2 tracking-tight">Portfólio de Projetos</h2>
+                    <p class="text-content-muted text-sm sm:text-base mt-2 max-w-xl">
+                        Espaço dedicado para documentar meus projetos práticos do curso Técnico em Automação Industrial (SENAI), bancadas de CLP, pneumática e integração mecânica.
+                    </p>
+                </div>
+
+                <!-- Filtros por Categoria -->
+                <div id="project-filters" class="flex flex-wrap gap-2 no-print" role="tablist" aria-label="Filtrar projetos por categoria">
+                    <button type="button" data-filter="all"
+                        class="filter-btn active px-4 py-2 rounded-xl text-xs font-mono font-semibold bg-brand text-white border border-brand theme-transition">
+                        Todos
+                    </button>
+                    <button type="button" data-filter="automacao"
+                        class="filter-btn px-4 py-2 rounded-xl text-xs font-mono font-medium bg-surface-card text-content-muted hover:text-brand border border-line theme-transition">
+                        Automação & CLP
+                    </button>
+                    <button type="button" data-filter="mecanica-qualidade"
+                        class="filter-btn px-4 py-2 rounded-xl text-xs font-mono font-medium bg-surface-card text-content-muted hover:text-brand border border-line theme-transition">
+                        Mecânica & Qualidade
+                    </button>
+                </div>
+            </div>
+
+            <!-- Grid de Projetos (Renderizado dinamicamente a partir do array 'projetosData' no JS) -->
+            <div id="projects-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Os cards serão injetados aqui pelo JavaScript -->
+            </div>
+
+            <!-- Nota informativa sobre evolução contínua no GitHub -->
+            <div class="mt-10 p-5 rounded-2xl bg-surface-card border border-dashed border-brand-border flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left no-print">
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 rounded-full bg-brand-soft text-brand flex items-center justify-center shrink-0">
+                        <i class="ph-bold ph-git-branch text-xl"></i>
+                    </div>
+                    <div>
+                        <p class="text-sm font-semibold">Portfólio em constante atualização</p>
+                        <p class="text-xs text-content-muted">Conforme avanço no curso Técnico em Automação Industrial no SENAI, novos diagramas, lógicas Ladder e projetos serão publicados aqui.</p>
+                    </div>
+                </div>
+                <a href="https://github.com" target="_blank" rel="noopener noreferrer"
+                    class="px-4 py-2.5 rounded-xl bg-surface-subtle hover:bg-brand-soft text-xs font-mono font-semibold text-content-main hover:text-brand border border-line shrink-0 flex items-center gap-2 theme-transition">
+                    <i class="ph-bold ph-github-logo text-base"></i>
+                    GitHub
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==========================================================================
+         7. SEÇÃO CONTATO, ENDEREÇO & RODAPÉ
+         ========================================================================== -->
+    <section id="contato" class="py-16 sm:py-20 bg-surface-subtle/40">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-2xl mx-auto">
+                <span class="font-mono text-xs uppercase tracking-widest text-brand font-semibold">05 // Contato & Localização</span>
+                <h2 class="text-3xl sm:text-4xl font-bold mt-2 tracking-tight">Entre em Contato</h2>
+                <p class="text-content-muted text-sm sm:text-base mt-3">
+                    Estou à disposição para oportunidades na área de Automação Industrial, Qualidade ou Processos Industriais na região do ABC Paulista e São Paulo.
+                </p>
+            </div>
+
+            <!-- Grid de 3 Cartões de Contato -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-5 mt-10">
+                
+                <!-- Cartão 1: Telefones / WhatsApp -->
+                <div class="p-6 rounded-2xl bg-surface-card border border-line flex flex-col justify-between gap-4 theme-transition">
+                    <div class="flex items-center gap-3">
+                        <div class="w-11 h-11 rounded-xl bg-brand-soft text-brand flex items-center justify-center shrink-0">
+                            <i class="ph-bold ph-phone-call text-2xl"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-sm">Telefones / WhatsApp</h3>
+                            <p class="text-xs text-content-muted">Contato direto</p>
+                        </div>
+                    </div>
+                    <div class="space-y-2 font-mono text-xs">
+                        <a href="https://wa.me/5511970806642" target="_blank" rel="noopener noreferrer"
+                            class="flex items-center justify-between p-2.5 rounded-lg bg-surface-subtle hover:bg-brand-soft hover:text-brand border border-line theme-transition">
+                            <span>(11) 97080-6642</span>
+                            <i class="ph-bold ph-whatsapp-logo text-base text-brand"></i>
+                        </a>
+                        <a href="tel:+5511957222241"
+                            class="flex items-center justify-between p-2.5 rounded-lg bg-surface-subtle hover:bg-brand-soft hover:text-brand border border-line theme-transition">
+                            <span>(11) 95722-2241</span>
+                            <i class="ph-bold ph-phone text-base text-brand"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Cartão 2: E-mail com botão de copiar -->
+                <div class="p-6 rounded-2xl bg-surface-card border border-line flex flex-col justify-between gap-4 theme-transition">
+                    <div class="flex items-center gap-3">
+                        <div class="w-11 h-11 rounded-xl bg-brand-soft text-brand flex items-center justify-center shrink-0">
+                            <i class="ph-bold ph-envelope-simple text-2xl"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-sm">E-mail Profissional</h3>
+                            <p class="text-xs text-content-muted">Envio de propostas</p>
+                        </div>
+                    </div>
+                    <div>
+                        <p id="email-text" class="text-xs font-mono text-content-main bg-surface-subtle p-2.5 rounded-lg border border-line break-all">
+                            annaesther1801@gmail.com
+                        </p>
+                        <button id="copy-email-btn" type="button"
+                            class="w-full mt-2 py-2.5 px-3 rounded-lg bg-brand hover:bg-brand-hover text-white text-xs font-mono font-semibold flex items-center justify-center gap-1.5 theme-transition no-print">
+                            <i class="ph-bold ph-copy"></i>
+                            <span id="copy-email-label">Copiar E-mail</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Cartão 3: Endereço / Localização -->
+                <div class="p-6 rounded-2xl bg-surface-card border border-line flex flex-col justify-between gap-4 theme-transition">
+                    <div class="flex items-center gap-3">
+                        <div class="w-11 h-11 rounded-xl bg-brand-soft text-brand flex items-center justify-center shrink-0">
+                            <i class="ph-bold ph-map-pin text-2xl"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-sm">Endereço</h3>
+                            <p class="text-xs text-content-muted">Diadema – SP</p>
+                        </div>
+                    </div>
+                    <div class="text-xs text-content-muted leading-relaxed bg-surface-subtle p-3 rounded-lg border border-line">
+                        <strong class="text-content-main block mb-0.5">Av. Presidente Juscelino, 330</strong>
+                        Bairro Piraporinha – Diadema – São Paulo
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Rodapé -->
+    <footer class="py-8 border-t border-line bg-surface-bg text-center">
+        <div class="max-w-6xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-content-muted">
+            <p>
+                &copy; <span id="current-year"></span> <strong class="text-content-main">Anna Esther Gomes da Silva</strong> — Técnico em Automação Industrial.
+            </p>
+            <p class="font-mono">
+                Diadema, SP • Publicado via <span class="text-brand font-semibold">GitHub Pages</span>
+            </p>
+        </div>
+    </footer>
+
+    <!-- ==========================================================================
+         8. MODAL INTERATIVO DE DETALHES DO PROJETO
+         ========================================================================== -->
+    <div id="project-modal" class="fixed inset-0 z-50 hidden items-center justify-center p-4 bg-slate-950/70 backdrop-blur-sm" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+        <div class="bg-surface-card border border-line rounded-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto shadow-2xl transform transition-all">
+            <!-- Cabeçalho do Modal -->
+            <div class="sticky top-0 bg-surface-card/95 backdrop-blur border-b border-line px-6 py-4 flex items-center justify-between z-10">
+                <div class="flex items-center gap-2">
+                    <span id="modal-category-badge" class="px-2.5 py-1 rounded-md text-xs font-mono font-semibold bg-brand-soft text-brand border border-brand-border">
+                        Categoria
+                    </span>
+                    <span id="modal-year" class="text-xs font-mono text-content-muted">2026</span>
+                </div>
+                <button id="close-modal-btn" type="button" aria-label="Fechar detalhes do projeto"
+                    class="p-2 rounded-lg bg-surface-subtle hover:bg-brand hover:text-white text-content-muted theme-transition">
+                    <i class="ph-bold ph-x text-lg"></i>
+                </button>
+            </div>
+
+            <!-- Conteúdo Dinâmico do Modal -->
+            <div class="p-6 space-y-6">
+                <div>
+                    <h3 id="modal-title" class="text-2xl font-bold tracking-tight">Título do Projeto</h3>
+                    <p id="modal-subtitle" class="text-sm text-content-muted mt-1">Subtítulo técnico</p>
+                </div>
+
+                <!-- Métricas / Status -->
+                <div id="modal-metrics" class="grid grid-cols-2 sm:grid-cols-3 gap-3">
+                    <!-- Injetado via JS -->
+                </div>
+
+                <!-- Blocos Técnicos: Objetivo e Detalhes Técnicos -->
+                <div class="space-y-4 text-sm">
+                    <div class="p-4 rounded-xl bg-surface-subtle/70 border border-line">
+                        <h4 class="font-mono text-xs uppercase tracking-wider text-brand font-semibold mb-1.5 flex items-center gap-1.5">
+                            <i class="ph-bold ph-target"></i> Objetivo & Escopo
+                        </h4>
+                        <p id="modal-challenge" class="text-content-muted leading-relaxed"></p>
+                    </div>
+
+                    <div class="p-4 rounded-xl bg-surface-subtle/70 border border-line">
+                        <h4 class="font-mono text-xs uppercase tracking-wider text-brand font-semibold mb-1.5 flex items-center gap-1.5">
+                            <i class="ph-bold ph-blueprint"></i> Desenvolvimento Técnico
+                        </h4>
+                        <p id="modal-architecture" class="text-content-muted leading-relaxed"></p>
+                    </div>
+                </div>
+
+                <!-- Tecnologias Utilizadas -->
+                <div>
+                    <h4 class="font-mono text-xs uppercase tracking-wider text-content-muted mb-2.5">Ferramentas & Conceitos</h4>
+                    <div id="modal-tags" class="flex flex-wrap gap-2">
+                        <!-- Injetado via JS -->
+                    </div>
+                </div>
+
+                <!-- Rodapé do Modal com Link para o GitHub -->
+                <div class="pt-4 border-t border-line flex flex-wrap items-center justify-between gap-3">
+                    <a id="modal-github-link" href="#" target="_blank" rel="noopener noreferrer"
+                        class="px-5 py-2.5 rounded-xl bg-brand hover:bg-brand-hover text-white text-xs font-mono font-semibold flex items-center gap-2 theme-transition">
+                        <i class="ph-bold ph-github-logo text-base"></i>
+                        Ver Documentação / Código no GitHub
+                    </a>
+                    <button id="close-modal-footer-btn" type="button"
+                        class="px-4 py-2.5 rounded-xl bg-surface-subtle hover:bg-brand-soft text-xs font-mono font-medium border border-line theme-transition">
+                        Fechar
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ==========================================================================
+         9. JAVASCRIPT (DADOS MODULARES + INTERATIVIDADE)
+         ========================================================================== -->
+    <script>
+        /**
+         * ========================================================================
+         * BANCO DE DADOS DO PORTFÓLIO DE ANNA ESTHER
+         * ========================================================================
+         * COMO ADICIONAR UM NOVO PROJETO DO SENAI OU BANCADA NO FUTURO:
+         * Copie um dos blocos { ... } abaixo, cole no final da lista
+         * (separado por vírgula) e preencha com os dados do seu projeto!
+         *
+         * Categorias válidas para os botões de filtro:
+         * - 'automacao'          -> Automação & CLP
+         * - 'mecanica-qualidade' -> Mecânica & Qualidade
+         */
+        const projetosData = [
+            {
+                id: 1,
+                category: 'automacao',
+                categoryLabel: 'Automação & CLP',
+                year: '2026 • Em Desenvolvimento',
+                title: 'Lógica de Controle Sequencial & Acionamentos (SENAI)',
+                shortDesc: 'Desenvolvimento de lógicas de comando, partida de motores, intertravamentos de segurança e programação básica em CLP.',
+                metrics: [
+                    { label: 'Status', value: 'Em Curso' },
+                    { label: 'Instituição', value: 'SENAI' },
+                    { label: 'Área', value: 'Controle' }
+                ],
+                challenge: 'Projetar circuitos de comando e lógicas programáveis para acionamento seguro e sequencial de cargas industriais.',
+                architecture: 'Elaboração de diagramas elétricos, definição de entradas e saídas (I/O) e programação estruturada em linguagem Ladder para simulação e testes em bancada.',
+                tags: ['CLP', 'Linguagem Ladder', 'Comandos Elétricos', 'Sensores', 'SENAI'],
+                githubUrl: 'https://github.com'
+            },
+            {
+                id: 2,
+                category: 'automacao',
+                categoryLabel: 'Automação & CLP',
+                year: '2026 • Planejado',
+                title: 'Sistemas Eletropneumáticos & Bancada Automatizada',
+                shortDesc: 'Integração entre atuadores pneumáticos, válvulas direcionais, sensores fim de curso e controle lógico programável.',
+                metrics: [
+                    { label: 'Status', value: 'Laboratório' },
+                    { label: 'Atuação', value: 'Eletropneumática' },
+                    { label: 'Foco', value: 'Ciclo Contínuo' }
+                ],
+                challenge: 'Automatizar sequências de avanço e retorno de cilindros com precisão de posicionamento e detecção de falhas.',
+                architecture: 'Montagem física de circuito pneumático aliado ao controle eletrônico via CLP, aplicando conceitos de sequência intuitiva e método cascata.',
+                tags: ['Eletropneumática', 'Sensores Magnéticos', 'Válvulas', 'Automação'],
+                githubUrl: 'https://github.com'
+            },
+            {
+                id: 3,
+                category: 'mecanica-qualidade',
+                categoryLabel: 'Mecânica & Qualidade',
+                year: '2025 • Concluído',
+                title: 'Controle Dimensional & Usinagem de Precisão',
+                shortDesc: 'Aplicação de metrologia industrial, leitura de desenho técnico e fabricação de componentes mecânicos no SENAI.',
+                metrics: [
+                    { label: 'Formação', value: 'Concluída' },
+                    { label: 'Precisão', value: 'Centesimal' },
+                    { label: 'Normas', value: 'ABNT / ISO' }
+                ],
+                challenge: 'Garantir a exatidão dimensional e o acabamento superficial de peças usinadas dentro das tolerâncias especificadas em projeto.',
+                architecture: 'Utilização de paquímetros, micrômetros e relógios comparadores aliados às ferramentas da qualidade para inspeção e validação de lotes.',
+                tags: ['Mecânica de Usinagem', 'Metrologia', 'Desenho Técnico', 'Qualidade'],
+                githubUrl: 'https://github.com'
+            }
+        ];
+
+        /* ========================================================================
+           INICIALIZAÇÃO DA PÁGINA
+           ======================================================================== */
+        document.addEventListener('DOMContentLoaded', () => {
+            // Atualiza o ano no rodapé
+            document.getElementById('current-year').textContent = new Date().getFullYear();
+
+            // Inicializa controles de Tema, Menu Mobile, Grid de Projetos, Modal e E-mail
+            initThemeToggle();
+            initMobileMenu();
+            renderProjects('all');
+            initProjectFilters();
+            initModal();
+            initCopyEmail();
+        });
+
+        /* ========================================================================
+           1. GERENCIAMENTO DE TEMA CLARO / ESCURO
+           ======================================================================== */
+        function initThemeToggle() {
+            const toggleBtn = document.getElementById('theme-toggle');
+            const sunIcon = document.getElementById('theme-icon-sun');
+            const moonIcon = document.getElementById('theme-icon-moon');
+            const themeLabel = document.getElementById('theme-label');
+
+            function updateIcons(theme) {
+                if (theme === 'dark') {
+                    sunIcon.classList.remove('hidden');
+                    moonIcon.classList.add('hidden');
+                    themeLabel.textContent = 'Claro';
+                } else {
+                    sunIcon.classList.add('hidden');
+                    moonIcon.classList.remove('hidden');
+                    themeLabel.textContent = 'Escuro';
+                }
+            }
+
+            // Sincroniza ícones com o tema atual carregado no <head>
+            const currentTheme = document.documentElement.getAttribute('data-theme') || 'light';
+            updateIcons(currentTheme);
+
+            toggleBtn.addEventListener('click', () => {
+                const activeTheme = document.documentElement.getAttribute('data-theme');
+                const nextTheme = activeTheme === 'dark' ? 'light' : 'dark';
+                
+                document.documentElement.setAttribute('data-theme', nextTheme);
+                localStorage.setItem('esther-portfolio-theme', nextTheme);
+                updateIcons(nextTheme);
+            });
+        }
+
+        /* ========================================================================
+           2. MENU RESPONSIVO (MOBILE)
+           ======================================================================== */
+        function initMobileMenu() {
+            const menuBtn = document.getElementById('mobile-menu-btn');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const menuIcon = document.getElementById('mobile-menu-icon');
+            const mobileLinks = document.querySelectorAll('.mobile-link');
+
+            function toggleMenu() {
+                const isHidden = mobileMenu.classList.contains('hidden');
+                if (isHidden) {
+                    mobileMenu.classList.remove('hidden');
+                    menuIcon.classList.replace('ph-list', 'ph-x');
+                } else {
+                    mobileMenu.classList.add('hidden');
+                    menuIcon.classList.replace('ph-x', 'ph-list');
+                }
+            }
+
+            menuBtn.addEventListener('click', toggleMenu);
+            mobileLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileMenu.classList.add('hidden');
+                    menuIcon.classList.replace('ph-x', 'ph-list');
+                });
+            });
+        }
+
+        /* ========================================================================
+           3. RENDERIZAÇÃO E FILTRO DOS CARDS DE PROJETOS
+           ======================================================================== */
+        function renderProjects(filterCategory) {
+            const grid = document.getElementById('projects-grid');
+            grid.innerHTML = '';
+
+            const filtered = filterCategory === 'all'
+                ? projetosData
+                : projetosData.filter(p => p.category === filterCategory);
+
+            filtered.forEach(project => {
+                const card = document.createElement('article');
+                card.className = 'rounded-2xl bg-surface-card border border-line hover:border-brand-border p-6 flex flex-col justify-between shadow-sm hover:shadow-lg theme-transition group';
+
+                // Gera badges das 3 primeiras tecnologias
+                const tagsHtml = project.tags.slice(0, 4).map(tag =>
+                    `<span class="px-2.5 py-1 rounded-md text-[11px] font-mono bg-surface-subtle text-content-muted border border-line">${tag}</span>`
+                ).join('');
+
+                // Gera mini-métricas do card
+                const metricsHtml = project.metrics.slice(0, 2).map(m =>
+                    `<div class="px-3 py-2 rounded-xl bg-surface-subtle/70 border border-line">
+                        <span class="block text-[10px] font-mono uppercase text-content-muted">${m.label}</span>
+                        <span class="text-sm font-bold text-brand font-mono">${m.value}</span>
+                    </div>`
+                ).join('');
+
+                card.innerHTML = `
+                    <div>
+                        <!-- Topo do Card: Categoria e Ano -->
+                        <div class="flex items-center justify-between gap-2 mb-4">
+                            <span class="px-3 py-1 rounded-full text-xs font-mono font-semibold bg-brand-soft text-brand border border-brand-border">
+                                ${project.categoryLabel}
+                            </span>
+                            <span class="text-xs font-mono text-content-muted">${project.year}</span>
+                        </div>
+
+                        <!-- Título e Resumo -->
+                        <h3 class="text-xl font-bold tracking-tight group-hover:text-brand theme-transition">
+                            ${project.title}
+                        </h3>
+                        <p class="text-sm text-content-muted mt-2.5 leading-relaxed">
+                            ${project.shortDesc}
+                        </p>
+
+                        <!-- Indicadores / Resultados -->
+                        <div class="grid grid-cols-2 gap-3 my-5">
+                            ${metricsHtml}
+                        </div>
+
+                        <!-- Tags Tecnológicas -->
+                        <div class="flex flex-wrap gap-1.5 mb-6">
+                            ${tagsHtml}
+                        </div>
+                    </div>
+
+                    <!-- Ações do Card -->
+                    <div class="pt-4 border-t border-line flex items-center justify-between gap-3">
+                        <button type="button" data-project-id="${project.id}"
+                            class="open-modal-btn px-4 py-2.5 rounded-xl bg-brand hover:bg-brand-hover text-white text-xs font-mono font-semibold flex items-center gap-2 theme-transition">
+                            <i class="ph-bold ph-magnifying-glass-plus text-base"></i>
+                            Ver Detalhes
+                        </button>
+
+                        <a href="${project.githubUrl}" target="_blank" rel="noopener noreferrer" aria-label="Código no GitHub"
+                            class="p-2.5 rounded-xl bg-surface-subtle hover:bg-brand-soft text-content-muted hover:text-brand border border-line theme-transition flex items-center gap-1.5 text-xs font-mono">
+                            <i class="ph-bold ph-github-logo text-base"></i>
+                            <span class="hidden sm:inline">GitHub</span>
+                        </a>
+                    </div>
+                `;
+
+                grid.appendChild(card);
+            });
+
+            // Reatribui eventos aos novos botões "Ver Detalhes"
+            document.querySelectorAll('.open-modal-btn').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const id = Number(btn.getAttribute('data-project-id'));
+                    openProjectModal(id);
+                });
+            });
+        }
+
+        function initProjectFilters() {
+            const filterBtns = document.querySelectorAll('.filter-btn');
+
+            filterBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    // Atualiza estilo visual dos botões de filtro
+                    filterBtns.forEach(b => {
+                        b.classList.remove('active', 'bg-brand', 'text-white', 'border-brand', 'font-semibold');
+                        b.classList.add('bg-surface-card', 'text-content-muted', 'border-line', 'font-medium');
+                    });
+
+                    btn.classList.add('active', 'bg-brand', 'text-white', 'border-brand', 'font-semibold');
+                    btn.classList.remove('bg-surface-card', 'text-content-muted', 'border-line', 'font-medium');
+
+                    // Filtra os cards
+                    const selectedCategory = btn.getAttribute('data-filter');
+                    renderProjects(selectedCategory);
+                });
+            });
+        }
+
+        /* ========================================================================
+           4. MODAL INTERATIVO DE DETALHES TÉCNICOS
+           ======================================================================== */
+        function openProjectModal(projectId) {
+            const project = projetosData.find(p => p.id === projectId);
+            if (!project) return;
+
+            document.getElementById('modal-category-badge').textContent = project.categoryLabel;
+            document.getElementById('modal-year').textContent = project.year;
+            document.getElementById('modal-title').textContent = project.title;
+            document.getElementById('modal-subtitle').textContent = project.shortDesc;
+            document.getElementById('modal-challenge').textContent = project.challenge;
+            document.getElementById('modal-architecture').textContent = project.architecture;
+            document.getElementById('modal-github-link').href = project.githubUrl;
+
+            // Preenche métricas no modal
+            const metricsContainer = document.getElementById('modal-metrics');
+            metricsContainer.innerHTML = project.metrics.map(m => `
+                <div class="p-3 rounded-xl bg-brand-soft border border-brand-border">
+                    <span class="block text-[10px] font-mono uppercase text-content-muted">${m.label}</span>
+                    <span class="text-base font-bold text-brand font-mono">${m.value}</span>
+                </div>
+            `).join('');
+
+            // Preenche tags completas no modal
+            const tagsContainer = document.getElementById('modal-tags');
+            tagsContainer.innerHTML = project.tags.map(tag => `
+                <span class="px-3 py-1 rounded-lg text-xs font-mono bg-surface-subtle border border-line">${tag}</span>
+            `).join('');
+
+            const modal = document.getElementById('project-modal');
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+            document.body.style.overflow = 'hidden'; // Trava rolagem do fundo
+        }
+
+        function closeProjectModal() {
+            const modal = document.getElementById('project-modal');
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+            document.body.style.overflow = '';
+        }
+
+        function initModal() {
+            const modal = document.getElementById('project-modal');
+            document.getElementById('close-modal-btn').addEventListener('click', closeProjectModal);
+            document.getElementById('close-modal-footer-btn').addEventListener('click', closeProjectModal);
+
+            // Fecha ao clicar fora da caixa do modal
+            modal.addEventListener('click', (e) => {
+                if (e.target === modal) closeProjectModal();
+            });
+
+            // Fecha ao pressionar a tecla ESC
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape' && !modal.classList.contains('hidden')) {
+                    closeProjectModal();
+                }
+            });
+        }
+
+        /* ========================================================================
+           5. COPIAR E-MAIL COM FEEDBACK VISUAL
+           ======================================================================== */
+        function initCopyEmail() {
+            const copyBtn = document.getElementById('copy-email-btn');
+            const emailText = document.getElementById('email-text').textContent.trim();
+            const copyLabel = document.getElementById('copy-email-label');
+
+            copyBtn.addEventListener('click', () => {
+                // Método compatível com navegadores e iframes (execCommand + fallback)
+                const tempInput = document.createElement('input');
+                tempInput.value = emailText;
+                document.body.appendChild(tempInput);
+                tempInput.select();
+                document.execCommand('copy');
+                document.body.removeChild(tempInput);
+
+                // Feedback visual no botão
+                copyLabel.textContent = 'E-mail Copiado!';
+
+                setTimeout(() => {
+                    copyLabel.textContent = 'Copiar E-mail';
+                }, 2200);
+            });
+        }
+    </script>
+</body>
+</html>
